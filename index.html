@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosu Hackathon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar"><!--NavBar-->
+        <ul>
+            <li><a href="#Home" id="Home">Home</a></li>
+            <li><a href="guide.html">Chatbot</a></li>
+            <li><a href="#Aboutus">About</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="center">
+        <div class="chat-container">
+            <div class="recommended-questions">
+                <button>What is a Stack?</button>
+                <button>How do Priority Queues work?</button>
+                <button>What is Hashing?</button>
+            </div>
+            <div class="answer-area">
+                <textarea class="chat-input" placeholder="Ask me anything..."></textarea>
+<button class="submit-button homepage" onclick="redirectToGuide()">&#11014;</button>
+
+<script>
+    function redirectToGuide() {//sends the question on first page to guide. Also acts like a shortcut to reach guide and have your question typed out
+        const textArea = document.querySelector(".chat-input");
+        const content = encodeURIComponent(textArea.value.trim());
+        if (content) {
+            window.location.href = `guide.html?content=${content}`;
+        } else {
+            alert("Please enter some text before submitting.");
+        }
+    }
+</script>
+            </div>
+        </div>
+    </div>
+    <div id="Aboutus" style="color: rgb(144, 76, 20);"><!--About us-->
+        <h1>
+            About Us
+        </h1>
+        <br>
+        <p style="color: rgb(144, 76, 20);">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ratione rerum molestias aperiam sapiente sint, culpa voluptas ipsam distinctio enim quidem aliquid eum perspiciatis a, sequi itaque neque numquam quis.
+            Atque, saepe quibusdam! Quas ipsum odio, illo unde eligendi optio rem velit eos quae impedit autem accusamus sit dicta architecto ut, ratione eaque, soluta repellat quaerat quasi. Quos, voluptates laudantium.
+            Cum soluta corrupti laudantium aliquid dolores nam minus vero voluptate natus dignissimos similique quam, aliquam voluptatum eaque maxime fugit, recusandae aperiam maiores doloremque. Quod ipsum iure, mollitia velit dolores suscipit.
+            Architecto quo molestias, reiciendis praesentium amet deserunt dolor vitae necessitatibus vel consectetur, vero repellat? Architecto, nostrum adipisci eum tenetur alias facilis qui nihil, ducimus inventore iste similique suscipit, molestias maxime!
+            Aliquam quam doloribus fugiat? Harum enim architecto modi itaque cupiditate doloremque excepturi ipsam commodi aperiam nostrum magni impedit, possimus non consectetur perferendis fugiat nobis! Nemo, ratione! Perferendis vel deserunt corporis!
+            Maiores reiciendis animi ab, ex, recusandae quos officia omnis odit provident laborum mollitia sunt nulla dolorem fuga quis et enim dolore corporis. Vero id mollitia iusto architecto ab minima enim.
+            Nihil sed dignissimos perspiciatis fugiat sint ad reiciendis iste asperiores cupiditate iusto iure optio at est nam doloribus, dolor veniam sapiente natus deleniti consequatur eos harum earum suscipit? Quae, quos.
+            Aliquam quas modi eaque quos odit? Facere voluptatibus aut consequuntur veniam veritatis obcaecati esse perspiciatis, necessitatibus a cupiditate laboriosam quia repudiandae quisquam voluptatem omnis cum asperiores ducimus. Maiores, pariatur a.
+            Ducimus nihil, est, et nemo numquam voluptates excepturi at vitae aut culpa iure. In odio repellat similique nulla, quidem cum ipsum dignissimos exercitationem asperiores. Quasi delectus error minus quas praesentium.
+            Incidunt eligendi praesentium aperiam officiis ipsa id voluptatibus delectus? Cum expedita at quae ea culpa eius eligendi atque dignissimos, eum doloribus ab veritatis, soluta, hic quaerat? Suscipit officia nesciunt quasi.
+        </p>
+    </div>
+    <footer class="footer"><!--Contact us-->
+        <div class="contact-us" id="contact-us">
+            <h1 style="font-size: large;color:rgb(163, 109, 27);">Contact Us</h1>
+            <form action="/submit" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </footer>
+    <div class="cursor-dot-outline"></div> <!--Cursor-->
+    <div class="cursor-dot"></div>
+    <script src="script.js"></script>
+</body>
+</html>

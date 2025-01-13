@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.34.0/min/vs/loader.js"></script><!--Monaco Code Editor-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosu Hackathon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="navbar"><!--NavBar-->
+        <ul>
+            <li><a href="index.html" id="Home">Home</a></li>
+            <li><a href="guide.html">Chatbot</a></li>
+            <li><a href="index.html#Aboutus">About</a></li>
+            <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="guide">
+        <div class="questions"><!--Dropdowns to have Leetcode Questions-->
+            <div class="dropdown-wrapper">
+                <div class="dropdown-container" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">Dropdown 1</div>
+                    <div class="dropdown-content">
+                        <p>Subtopic 1</p>
+                        <p>Subtopic 2</p>
+                        <p>Subtopic 3</p>
+                    </div>
+                </div>
+        
+                <div class="dropdown-container" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">Dropdown 2</div>
+                    <div class="dropdown-content">
+                        <p>Option A</p>
+                        <p>Option B</p>
+                        <p>Option C</p>
+                    </div>
+                </div>
+        
+                <div class="dropdown-container" onclick="toggleDropdown(this)">
+                    <div class="dropdown-header">Dropdown 3</div>
+                    <div class="dropdown-content">
+                        <p>Topic X</p>
+                        <p>Topic Y</p>
+                        <p>Topic Z</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-code"><!--Monaco Code Editor-->
+            <div class="language-selector">
+                <label for="language">Select Language: </label>
+                <select id="language" onchange="changeLanguage()">
+                  <option value="c">C</option>
+                  <option value="cpp">C++</option>
+                  <option value="python">Python</option>
+                  <option value="java">Java</option>
+                </select>
+            </div>
+            <div id="editor" ></div>
+        </div>
+        <div class="chatbot">
+            <div class="message-container"><!--Messagebox-->
+            </div>
+            <div class="lower-div">
+                <textarea  class="chat-input dest" placeholder="Type something..."></textarea>
+                <button class="submit-button">&#11014;</button>
+            </div>
+        </div>
+    </div>
+    <div class="cursor-dot-outline"></div><!--Cursor-->
+    <div class="cursor-dot"></div>
+    <footer class="footer"><!--Contact us-->
+        <div class="contact-us" id="contact-us">
+            <h1 style="font-size: large;color:rgb(163, 109, 27);">Contact Us</h1>
+            <form action="/submit" method="POST">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        let editor;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.34.0/min/vs' } });
+            require(['vs/editor/editor.main'], function() {
+                monaco.editor.setTheme('vs-dark');
+                editor = monaco.editor.create(document.getElementById('editor'), {
+                    value: 'Hello World!',//can use to set to default code for leetcode question like class Solution etc
+                    language: 'python' // Default language is C
+                });
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const params = new URLSearchParams(window.location.search);
+            const content = params.get("content");
+            if (content) {
+                const questionsDiv = document.querySelector(".dest");
+                questionsDiv.textContent = decodeURIComponent(content);
+                const submission=document.querySelector(".submit-button");
+                if (!submission.classList.contains('active')) {
+                    submission.classList.add('active');
+                }
+                setTimeout(() => {submission.click()},250);
+            }
+        });
+        function changeLanguage() {
+            const language = document.getElementById('language').value;
+
+            // Get the current model and change its language
+            const model = editor.getModel();
+            monaco.editor.setModelLanguage(model, language);
+        }
+        function toggleDropdown(container) {
+            container.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
