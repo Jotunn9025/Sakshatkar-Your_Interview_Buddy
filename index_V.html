@@ -17,9 +17,11 @@
 
   <div class="container">
     <!-- LeetCode Questions -->
-    <div class="section" id="leetcode-questions">
+    <div class="section recommended-questions" id="leetcode-questions">
       <h2>LeetCode Questions</h2>
-      <p>Question List or Description Goes Here</p>
+      <button>Sample Question 1</button>
+      <button>Sample Question 2</button>
+      <button>Sample Question 3</button>
     </div>
 
     <!-- Code Editor -->
@@ -32,16 +34,20 @@
     <!-- AI Assistant -->
     <div class="section" id="ai-assistant">
       <h2>AI Assistant</h2>
-      <div class="chat-box">
-        <p>Ask a question...</p>
-      </div>
-      <input type="text" placeholder="Type your question here..." />
-      <button id="send-question">Send</button>
+      <div class="message-container"></div>
+      <input type="text" class="chat-input" placeholder="Ask a question...">
+      <button class="submit-button">Send</button>
     </div>
   </div>
 
   <footer>
     <a href="#" target="_blank">GitHub</a>
   </footer>
+
+  <!-- Cursor Dot -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-dot-outline"></div>
+
+  <script src="script.js"></script>
 </body>
 </html>
