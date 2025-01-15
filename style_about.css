@@ -40,7 +40,7 @@ body {
     background-color: #44475a;
     border-radius: 10px;
     cursor: pointer;
-    height: 1000px;
+    height: 750px;
 }
 .card:hover {
     background-color: #b8d4de;

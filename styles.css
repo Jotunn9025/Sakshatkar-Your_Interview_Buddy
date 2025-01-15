@@ -132,10 +132,15 @@ textarea {
 }
 
 .chat-input {
-    flex-grow: 1;
+    width: 100%;
     padding: 0.5rem;
     border: 1px solid #44475a;
     border-radius: 4px;
+    color: #f8f8f2;
+    background-color: #282a36;
+    max-height: calc(4 * 1.5em);
+    overflow-y: auto;  
+    line-height: 1.5em;
 }
 
 .submit-button {
