@@ -5,43 +5,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Code-Bro</title>
   <link rel="stylesheet" href="styles_V.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshatkar</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="navbar">
-    <div class="logo">Code-Bro</div>
-    <div class="links">
-      <a href="#" class="nav-link">Home</a>
-      <a href="#" class="nav-link">About</a>
-    </div>
-  </div>
+    <header>
+        <nav>
+            <h1>Sakshatkar</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <div class="container">
-    <!-- LeetCode Questions -->
-    <div class="section" id="leetcode-questions">
-      <h2>LeetCode Questions</h2>
-      <p>Question List or Description Goes Here</p>
-    </div>
+    <main>
+        <div class="container">
+            <section class="leetcode-questions">
+                <h2>LeetCode Questions</h2>
+                <div class="leetcode-content">
+                    <!-- LeetCode content area -->
+                </div>
+            </section>
 
-    <!-- Code Editor -->
-    <div class="section" id="code-editor">
-      <h2>Code Editor</h2>
-      <textarea placeholder="Write your code here..."></textarea>
-      <button id="run-code">Run Code</button>
-    </div>
+            <section class="code-editor">
+                <h2>Code Editor</h2>
+                <textarea id="code-area" placeholder="Write your code here..."></textarea>
+                <button id="run-code">Run Code</button>
+            </section>
 
-    <!-- AI Assistant -->
-    <div class="section" id="ai-assistant">
-      <h2>AI Assistant</h2>
-      <div class="chat-box">
-        <p>Ask a question...</p>
-      </div>
-      <input type="text" placeholder="Type your question here..." />
-      <button id="send-question">Send</button>
-    </div>
-  </div>
+            <section class="ai-assistant">
+                <h2>AI Assistant</h2>
+                <div class="message-container"></div>
+                <div class="chat-controls">
+                    <input type="text" class="chat-input" placeholder="Ask a question...">
+                    <button class="submit-button">Send</button>
+                </div>
+            </section>
+        </div>
+    </main>
 
-  <footer>
-    <a href="#" target="_blank">GitHub</a>
-  </footer>
+    <footer>
+        <p>&copy; 2025 Sakshatkar</p>
+        <a href="https://github.com">GitHub</a>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
