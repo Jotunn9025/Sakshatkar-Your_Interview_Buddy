@@ -1,0 +1,102 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    width: 100%;
+    background-color: #1e1e2f;
+}
+.title h1 {
+    text-align: center;
+    padding-top: 50px;
+    font-size: 42px;
+    color: #ff79c6;
+}
+.title h1::after {
+    content: "";
+    height: 4px;
+    width: 230px;
+    display: block;
+    margin: auto;
+}
+.services {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 75px auto;
+    text-align: center;
+}
+.card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 20px;
+    padding: 20px 20px;
+    background-color: #44475a;
+    border-radius: 10px;
+    cursor: pointer;
+    height: 1000px;
+}
+.card:hover {
+    background-color: #b8d4de;
+    transition: 0.4s ease;
+}
+.card .icon img {
+    width: 500px; /* Set the desired width */
+    height: 500px; /* Set the desired height */
+    object-fit: cover; /* Ensures the image covers the dimensions without stretching */
+    border-radius: 50%; /* Optional: Makes the image circular */
+    display: block;
+    margin: 0 auto 20px; /* Centers the image and adds space below */
+}
+
+.card .icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+.card h2 {
+    font-size: 28px;
+    color: #ff79c6;
+    margin-bottom: 20px;
+}
+.card p {
+    font-size: 25px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    color: #6272a4;
+}
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.button {
+    font-size: 15px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #6272a4;
+    padding: 8px 12px;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+.button:hover {
+    background-color: #c94f4f;
+    transition: 0.4s ease;
+}
+@media screen and (max-width: 940px) {
+    .services {
+        display: flex;
+        flex-direction: column;
+    }
+    .card {
+        width: 85%;
+        display: flex;
+        margin: 20px 0px;
+    }
+}
