@@ -35,23 +35,44 @@ document.addEventListener('DOMContentLoaded', () => {
         const inputValue = chatInput.value.trim();
         if (inputValue === '') return;
 
-        appendMessage(inputValue, 'user');//adds ur message to the messagebox
-
+        appendMessage(inputValue, 'user'); // Adds your message to the messagebox
+    
         submitButton.classList.add('loading');
         submitButton.classList.remove('active');
-
-        const delay = Math.random() * 3000 + 2000;//delay timer currently hardcoded
+    
+        const delay = Math.random() * 1+ 2000; // Delay timer currently hardcoded
         setTimeout(() => {
             submitButton.classList.remove('loading');
             submitButton.classList.add('active');
-
+    
             chatInput.value = ''; 
-
-            setTimeout(() => {
-                const botMessage = 'This is a bot response!';//bot response placeholder
-                appendMessage(botMessage, 'bot');//send message
-            }, 500); //takes 500 ms to do so
-
+    
+            // Make an API call to the Flask server
+            fetch('http://127.0.0.1:5000/process', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    inputString: inputValue, // Send the user input to the Flask server
+                }),
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // Log the response status and text for better debugging
+                    console.error('Response status:', response.status);
+                    return response.text().then(text => { throw new Error(`Network response was not ok: ${text}`) });
+                }
+                return response.json();
+            })
+            .then(data => {
+                const botMessage = data.response || 'Error occurred';
+                appendMessage(botMessage, 'bot');
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                appendMessage('There was an error processing your request.', 'bot'); // Error handling
+            });
         }, delay);
     }
 
