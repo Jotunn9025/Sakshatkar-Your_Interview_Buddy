@@ -1,8 +1,34 @@
 // Handling AI Assistant Messages
 function handleMessage(userMessage) {
-    const botResponse = `You said: ${userMessage}`; // Replace with real AI logic later
+    const botMessage = `You said: ${userMessage}`;
+     // Replace with real AI logic later
+     fetch('http://127.0.0.1:5000/process', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            inputString: userMessage, // Send the user input to the Flask server
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            // Log the response status and text for better debugging
+            console.error('Response status:', response.status);
+            return response.text().then(text => { throw new Error(`Network response was not ok: ${text}`) });
+        }
+        return response.json();
+    })
+    .then(data => {
+        botMessage = data.response || 'Error occurred';
+        appendMessage(botMessage, 'bot');
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        appendMessage('There was an error processing your request.', 'bot'); // Error handling
+    });
     appendMessage(userMessage, 'user');
-    appendMessage(botResponse, 'bot');
+    appendMessage(botMessage, 'bot');
 }
 
 function appendMessage(message, sender) {
