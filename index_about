@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="style_about.css">
+    <title>About Us</title>
+</head>
+<body>
+    <div class="section">
+        <div class="title">
+            <h1>About Us</h1>
+        </div>
+        <div class="services">
+            <div class="card">
+                <div class="icon">
+                    <img src="Vinit.jpg" alt="Vinit Lunia">
+                </div>
+                <h2>Vinit Lunia</h2>
+                <p>Studying AI-DS at Thadomal Shahani Engineering College, Bandra |Assistant Marketing Head at IETE-TSEC | Passionate about AI and Data Science |  Trinity-certified Piano Player | Exploring tech & creativity</p>
+                <div class="social-links">
+                    <a href="https://github.com/itsvinitlunia" class="button"><i class="fab fa-github"></i></a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="button"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/vinit-lunia-a7473a272" class="button"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="Youhan.png" alt="Youhan Lalwani">
+                </div>
+                <h2>Youhan Lalwani</h2>
+                <p>Studying AI-DS at Thadomal Shahani Engineering College, Bandra  | Passionate about AI | Creating projects and exploring technology and AI</p>
+                <div class="social-links">
+                    <a href="" class="button"><i class="fab fa-github"></i></a>
+                    <a href="" class="button"><i class="fas fa-envelope"></i></a>
+                    <a href="" class="button"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="card">
+                <div class="icon">
+                    <img src="Akshita.jpg" alt="Akshita">
+                </div>
+                <h2>Akshita Gupta</h2>
+                <p>Studying IT at Thadomal Shahani Engineering College, Bandra |Assistant Publicity Head at IETE-TSEC | Passionate about AI | Exploring tech & creativity</p>
+                <div class="social-links">
+                    <a href="https://github.com/guptaakshitaa" class="button"><i class="fab fa-github"></i></a>
+                    <a href="akshitaguptatsec@gmail.com" class="button"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/akshita-gupta-67aa752ab?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" class="button"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
