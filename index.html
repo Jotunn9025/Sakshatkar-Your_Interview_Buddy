@@ -1,76 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code-Bro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nosu Hackathon</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Sakshatkar</title>
 </head>
 <body>
-    <div class="navbar"><!--NavBar-->
-        <ul>
-            <li><a href="#Home" id="Home">Home</a></li>
-            <li><a href="guide.html">Chatbot</a></li>
-            <li><a href="#Aboutus">About</a></li>
-            <li><a href="#contact-us">Contact Us</a></li>
-        </ul>
-    </div>
-    <div class="center">
-        <div class="chat-container">
-            <div class="recommended-questions">
-                <button>What is a Stack?</button>
-                <button>How do Priority Queues work?</button>
-                <button>What is Hashing?</button>
-            </div>
-            <div class="answer-area">
-                <textarea class="chat-input" placeholder="Ask me anything..."></textarea>
-<button class="submit-button homepage" onclick="redirectToGuide()">&#11014;</button>
+    <header>
+        <nav>
+            <span class="leftnavbar"><a id="logo-link" href="index.html"><img id="logo" src="Assets/Logo.jpg" alt="Logo"></a></span>
+            <span class="rightnavbar">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index_about.html">About</a></li>
+                </ul>
+            </span>
+        </nav>
+    </header>
 
-<script>
-    function redirectToGuide() {//sends the question on first page to guide. Also acts like a shortcut to reach guide and have your question typed out
-        const textArea = document.querySelector(".chat-input");
-        const content = encodeURIComponent(textArea.value.trim());
-        if (content) {
-            window.location.href = `guide.html?content=${content}`;
-        } else {
-            alert("Please enter some text before submitting.");
-        }
-    }
-</script>
-            </div>
+    <main>
+        <div class="container">
+            <section class="leetcode-questions">
+                <h2>LeetCode Questions</h2>
+                <div class="leetcode-content">
+                    <div class="leetcode-item" data-id="sample_code1">
+                        <button class="dropdown-button">1:Two Sum</button>
+                        <div class="dropdown-content">
+                            <p class="description">Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.<br><br>
+
+                                You may assume that each input would have exactly one solution, and you may not use the same element twice.<br><br>
+                                
+                                You can return the answer in any order.<br><br>
+                                Constraints<br><br>
+                                
+                                &#x2022 2 <= nums.length <= 104<br>
+                                &#x2022  -109 <= nums[i] <= 109<br>
+                                &#x2022  -109 <= target <= 109<br>
+                                &#x2022  Only one valid answer exists.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="leetcode-item" data-id="sample_code2">
+                        <button class="dropdown-button">2:Regular Expression Matching</button>
+                        <div class="dropdown-content">
+                            <p class="description">Given an input string s and a pattern p, implement regular expression matching with support for '.' and '*' where:
+                                <br>
+                                '.' Matches any single character.<br>
+                                '*' Matches zero or more of the preceding element.<br><br>
+                            
+                            The matching should cover the entire input string (not partial).<br><br><br>
+                            
+                             
+                            
+                            Example 1:<br><br>
+                            
+                            Input: s = "aa", p = "a"<br>
+                            Output: false<br>
+                            Explanation: "a" does not match the entire string "aa".<br>
+                            <br>
+                            Constraints<br>
+                            
+                            &#x2022 1 <= s.length <= 20<br>
+                            &#x2022 1 <= p.length <= 20<br>
+                            &#x2022 s contains only lowercase English letters.<br>
+                            &#x2022 p contains only lowercase English letters, '.', and '*'.<br>
+                            &#x2022 It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="leetcode-item" data-id="sample_code3">
+                        <button class="dropdown-button">3:Longest Valid Parenthesis</button>
+                        <div class="dropdown-content">
+                            <p class="description">Given a string containing just the characters '(' and ')', return the length of the longest valid (well-formed) parentheses
+                                substring
+                                <br>
+                                <br>
+                                Example 1:
+                                <br>
+                                Input: s = "(()"<br>
+                                Output: 2<br>
+                                Explanation: The longest valid parentheses substring is "()".<br>
+                                Constraints:<br>
+
+                                &#x2022 0 <= s.length <= 3 * 104<br>
+                                &#x2022 s[i] is '(', or ')'.
+
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+
+            <section class="code-editor">
+                <h2>Code Editor</h2>
+                <textarea id="code-area" placeholder="Write your code here..."></textarea>
+                <button id="run-code" onclick="copyCode()"><i class="fa-solid fa-copy"></i></button>
+            </section>
+
+            <section class="ai-assistant">
+                <h2>AI Assistant</h2>
+                <div class="message-container"></div>
+                <div class="chat-controls">
+                    <input type="text" class="chat-input" placeholder="Ask a question...">
+                    <button class="submit-button">Send</button>
+                </div>
+            </section>
         </div>
-    </div>
-    <div id="Aboutus" style="color: rgb(144, 76, 20);"><!--About us-->
-        <h1>
-            About Us
-        </h1>
-        <br>
-        <p style="color: rgb(144, 76, 20);">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse ratione rerum molestias aperiam sapiente sint, culpa voluptas ipsam distinctio enim quidem aliquid eum perspiciatis a, sequi itaque neque numquam quis.
-            Atque, saepe quibusdam! Quas ipsum odio, illo unde eligendi optio rem velit eos quae impedit autem accusamus sit dicta architecto ut, ratione eaque, soluta repellat quaerat quasi. Quos, voluptates laudantium.
-            Cum soluta corrupti laudantium aliquid dolores nam minus vero voluptate natus dignissimos similique quam, aliquam voluptatum eaque maxime fugit, recusandae aperiam maiores doloremque. Quod ipsum iure, mollitia velit dolores suscipit.
-            Architecto quo molestias, reiciendis praesentium amet deserunt dolor vitae necessitatibus vel consectetur, vero repellat? Architecto, nostrum adipisci eum tenetur alias facilis qui nihil, ducimus inventore iste similique suscipit, molestias maxime!
-            Aliquam quam doloribus fugiat? Harum enim architecto modi itaque cupiditate doloremque excepturi ipsam commodi aperiam nostrum magni impedit, possimus non consectetur perferendis fugiat nobis! Nemo, ratione! Perferendis vel deserunt corporis!
-            Maiores reiciendis animi ab, ex, recusandae quos officia omnis odit provident laborum mollitia sunt nulla dolorem fuga quis et enim dolore corporis. Vero id mollitia iusto architecto ab minima enim.
-            Nihil sed dignissimos perspiciatis fugiat sint ad reiciendis iste asperiores cupiditate iusto iure optio at est nam doloribus, dolor veniam sapiente natus deleniti consequatur eos harum earum suscipit? Quae, quos.
-            Aliquam quas modi eaque quos odit? Facere voluptatibus aut consequuntur veniam veritatis obcaecati esse perspiciatis, necessitatibus a cupiditate laboriosam quia repudiandae quisquam voluptatem omnis cum asperiores ducimus. Maiores, pariatur a.
-            Ducimus nihil, est, et nemo numquam voluptates excepturi at vitae aut culpa iure. In odio repellat similique nulla, quidem cum ipsum dignissimos exercitationem asperiores. Quasi delectus error minus quas praesentium.
-            Incidunt eligendi praesentium aperiam officiis ipsa id voluptatibus delectus? Cum expedita at quae ea culpa eius eligendi atque dignissimos, eum doloribus ab veritatis, soluta, hic quaerat? Suscipit officia nesciunt quasi.
-        </p>
-    </div>
-    <footer class="footer"><!--Contact us-->
-        <div class="contact-us" id="contact-us">
-            <h1 style="font-size: large;color:rgb(163, 109, 27);">Contact Us</h1>
-            <form action="/submit" method="POST">
-                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                <input type="email" id="email" name="email" placeholder="Your Email" required>
-                <textarea id="message" name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Submit</button>
-            </form>
-        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Sakshatkar</p>
+        <a href="https://github.com">GitHub</a>
     </footer>
-    <div class="cursor-dot-outline"></div> <!--Cursor-->
-    <div class="cursor-dot"></div>
+    <script>
+        function copyCode() {
+            const textarea = document.getElementById('code-area');
+            textarea.select(); 
+            textarea.setSelectionRange(0, textarea.value.length); 
+            navigator.clipboard.writeText(textarea.value) 
+                .then(() => {
+                    showNotification('Code copied to clipboard!', 'success');
+                })
+                .catch(err => {
+                    showNotification('Failed to copy code. Please try again.', 'error');
+                });
+        }
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+        
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.classList.add('hide');
+            }, 2500);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+    </script>
+    <script src="https://kit.fontawesome.com/3b02903ae0.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>
