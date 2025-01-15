@@ -52,17 +52,16 @@ submitButton.addEventListener('click', () => {
 });
 
 chatInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        submitButton.click();
+    if (event.key === 'Enter' && !event.shiftKey) {
+        event.preventDefault();  
+        submitButton.click();  
     }
+
 });
 
-// Code Editor Logic
 const runCodeButton = document.getElementById('run-code');
 const codeArea = document.getElementById('code-area');
 
-// Toggle the dropdown content and load text into the textarea
-// Get all dropdown buttons
 const dropdownButtons = document.querySelectorAll('.dropdown-button');
 
 dropdownButtons.forEach(button => {
