@@ -32,3 +32,4 @@ Conclusion
 Sakshatkar - Your Interview Buddy is designed to be a holistic solution for software developers preparing for technical interviews. It integrates question fetching, a code IDE, and AI-driven guidance to deliver a personalized and efficient preparation experience. Our journey in building Sakshatkar has taught us a lot about problem-solving, user experience design, and the potential of AI in education.
 
 ---
+## [Live Page](https://jotunn9025.github.io/Sakshatkar-Your_Interview_Buddy/)
